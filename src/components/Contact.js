@@ -1,35 +1,34 @@
-import React from 'react';
+import React from "react";
 
 export default function Contact() {
-
-  const onSubmit=async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const message = e.target.message.value;
     try {
-      const res = await fetch('https://api.resend.com/emails', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer re_cXDuNjcs_JuFev2M9JAER9q1g8y6QHhvc'
-  },
-  body: JSON.stringify({
-    from: email,
-    to: 'anupamkandel8@gmail.com',
-    subject: 'Contact form Portfolio',
-    html: `<p>${message}</p>`
-  })
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer re_cXDuNjcs_JuFev2M9JAER9q1g8y6QHhvc",
+        },
+        body: JSON.stringify({
+          from: email,
+          to: "anupamkandel8@gmail.com",
+          subject: "Contact form Portfolio",
+          html: `<p>${message}</p>`,
+        }),
       });
       if (res.ok) {
-  alert('Email sent!');
-  e.target.reset();
+        alert("Email sent!");
+        e.target.reset();
       } else {
-  alert('Failed to send email.');
+        alert("Failed to send email.");
       }
     } catch (err) {
-      alert('Error sending email.');
+      alert("Error sending email.");
     }
-  }
+  };
 
   return (
     <div>
@@ -82,14 +81,9 @@ export default function Contact() {
             </a>
           </div>
         </div>
-        <div className="flex gap-4">
-          <a href="mailto:your.email@example.com">
-          
-          </a>
-          <form
-            className="flex flex-col gap-3 w-full max-w-xs"
-       
-          >
+        <div className="flex w-full gap-4">
+          <a href="mailto:your.email@example.com"></a>
+          <form className="flex flex-col gap-3 w-full">
             <input
               type="email"
               name="email"
@@ -105,18 +99,14 @@ export default function Contact() {
               rows={4}
             />
             <button
-            
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              className="px-1 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             >
               Send via Resend
             </button>
           </form>
-
-          
         </div>
       </div>
-
     </div>
   );
 }
