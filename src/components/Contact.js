@@ -4,6 +4,15 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Contact() {
+  const downloadPdf = () => {
+  
+    const link = document.createElement("a"); // create <a> tag
+    link.href = "/anupam-resume.pdf"; // file location (inside public)
+    link.download = "anupam-resume.pdf"; // force download with filename
+    link.target = "_blank"; // open in new tab
+    link.click(); // trigger click
+  };
+
   let loadingToastId;
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
@@ -69,7 +78,7 @@ export default function Contact() {
           </div>
           <div className="flex flex-col items-center">
             <a
-              href="https://github.com/your-github"
+              href="https://github.com/anupamkandel8"
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
@@ -82,20 +91,13 @@ export default function Contact() {
               <span className="text-xs mt-1 text-gray-600">GitHub</span>
             </a>
           </div>
-          <div className="flex flex-col items-center">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Resume"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
-                alt="Resume"
-                className="w-10 h-10"
-              />
-              <span className="text-xs mt-1 text-gray-600">Resume</span>
-            </a>
+          <div onClick={downloadPdf} className="flex flex-col items-center cursor-pointer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
+              alt="Resume"
+              className="w-10 h-10"
+            />
+            <span className="text-xs mt-1 text-gray-600">Resume</span>
           </div>
         </div>
         <div className="flex w-full max-w-90 gap-4">
