@@ -11,6 +11,24 @@ const techLogos = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
   "Next.js":
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  Express:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  HTML:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  CSS:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  JavaScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  Python:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  TypeScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  Vercel:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  Render:
+    "https://avatars.githubusercontent.com/u/42880151?s=200&v=4",
+  MySQL:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 };
 
 export const projects = [
@@ -81,9 +99,42 @@ export const jobs = [
 ];
 
 export const skills = [
-  ["Backend", ["Node.js", "Express"]],
-  ["Frontend", ["React", "HTML", "CSS"]],
-  ["Languages", ["JavaScript", "Python", "TypeScript"]],
-  ["Cloud", ["Versel", "Render"]],
-  ["Database", ["MongoDB", "PostgreSQL", "MySQL"]],
+  {
+    category: "Backend",
+    items: [
+      { name: "Node.js", logo: techLogos["Node.js"] },
+      { name: "Express", logo: techLogos["Express"] },
+    ],
+  },
+  {
+    category: "Frontend",
+    items: [
+      { name: "React", logo: techLogos["React"] },
+      { name: "HTML", logo: techLogos["HTML"] },
+      { name: "CSS", logo: techLogos["CSS"] },
+    ],
+  },
+  {
+    category: "Languages",
+    items: [
+      { name: "JavaScript", logo: techLogos["JavaScript"] },
+      { name: "Python", logo: techLogos["Python"] },
+      { name: "TypeScript", logo: techLogos["TypeScript"] },
+    ],
+  },
+  {
+    category: "Cloud",
+    items: [
+      { name: "Vercel", logo: techLogos["Vercel"] },
+      { name: "Render", logo: techLogos["Render"] },
+    ],
+  },
+  {
+    category: "Database",
+    items: [
+      { name: "MongoDB", logo: techLogos["MongoDB"] },
+      { name: "PostgreSQL", logo: techLogos["PostgreSQL"] },
+      { name: "MySQL", logo: techLogos["MySQL"] },
+    ],
+  },
 ];

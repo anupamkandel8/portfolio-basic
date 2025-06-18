@@ -5,16 +5,19 @@ import { skills } from "@/personalData.js";
 export default function Skill() {
   return (
     <>
-      <h1 className=" font-bold text-xl mt-5">Skill</h1>
+      <h1 className="font-bold text-xl mt-5">Skill</h1>
       <ul>
-        {skills.map((row, idx) => (
-          <li key={idx}>
-            <p>
-              {row[0]}:{" "}
-              {row[1].map((skill, i) => (
-                <span key={i}>{skill}{i < row[1].length - 1 ? ", " : ""}</span>
+        {skills.map((category, idx) => (
+          <li key={idx} className="mb-4 flex items-center">
+            <span className="font-semibold mr-2">{category.category + ":"}</span>
+            <span className="flex flex-wrap gap-3 mt-0">
+              {category.items.map((skill, i) => (
+                <span key={i} className="flex items-center gap-1">
+                  <img src={skill.logo} alt={skill.name} className="w-6 h-6" />
+                  {/* <span>{skill.name}</span> */}
+                </span>
               ))}
-            </p>
+            </span>
           </li>
         ))}
       </ul>

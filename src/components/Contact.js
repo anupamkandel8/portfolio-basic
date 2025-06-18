@@ -1,32 +1,49 @@
+"use client";
 import React from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function Contact() {
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const message = e.target.message.value;
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer re_cXDuNjcs_JuFev2M9JAER9q1g8y6QHhvc",
-        },
-        body: JSON.stringify({
-          from: email,
-          to: "anupamkandel8@gmail.com",
-          subject: "Contact form Portfolio",
-          html: `<p>${message}</p>`,
-        }),
-      });
-      if (res.ok) {
-        alert("Email sent!");
-        e.target.reset();
-      } else {
-        alert("Failed to send email.");
+  let loadingToastId;
+  const [contact, setContact] = useState("");
+  const [message, setMessage] = useState("");
+  const sendEmail = async () => {
+    console.log(contact, message);
+    if (contact.trim() !== "" && message.trim() !== "") {
+      try {
+        loadingToastId = toast.loading("Sending Message");
+        const res = await fetch("/api/email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: "anupamkandel8@gmail.com",
+            subject: "From your Profile Website",
+            contact: contact,
+            message: message,
+          }),
+        });
+        // const data = await res.json();
+        // console.log(data);
+        if (res.status === 200) {
+          setContact("");
+          setMessage("");
+          toast.dismiss(loadingToastId);
+          toast.success("Message sent successfully!");
+        } else {
+          toast.dismiss(loadingToastId);
+          toast.error("Failed to send message.");
+          window.location.href = "mailto:anupamkandel8@gmail.com";
+        }
+      } catch (err) {
+        toast.dismiss(loadingToastId);
+        toast.error("Error sending message");
+        console.log("email error: ", err);
+        window.location.href = "mailto:anupamkandel8@gmail.com";
       }
-    } catch (err) {
-      alert("Error sending email.");
+    } else {
+      toast.error("Please fill in both fields.");
     }
   };
 
@@ -81,30 +98,44 @@ export default function Contact() {
             </a>
           </div>
         </div>
-        <div className="flex w-full gap-4">
+        <div className="flex w-full max-w-90 gap-4">
           <a href="mailto:your.email@example.com"></a>
-          <form className="flex flex-col gap-3 w-full">
+          <div className="flex flex-col gap-3 w-full">
             <input
-              type="email"
-              name="email"
+              onChange={(e) => setContact(e.target.value)}
+              type="text"
+              name="contact"
               required
-              placeholder="Recipient Email"
+              placeholder="Your contact information"
               className=" border rounded px-3 py-2"
+              value={contact}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  sendEmail();
+                }
+              }}
             />
             <textarea
+              onChange={(e) => setMessage(e.target.value)}
               name="message"
               required
-              placeholder="Write anything..."
+              placeholder="Write message..."
               className="border rounded px-3 py-2"
-              rows={4}
+              rows={3}
+              value={message}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  sendEmail();
+                }
+              }}
             />
             <button
-              type="submit"
+              onClick={sendEmail}
               className="px-1 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             >
-              Send via Resend
+              Send Message
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

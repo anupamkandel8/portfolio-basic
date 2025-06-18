@@ -7,7 +7,7 @@ export default function Experience() {
       <h1 className="  text-center text-2xl font-bold mb-2  ">Experience</h1>
 
       <div className="space-y-2">
-        {jobs.reverse().map((job) => (
+        {[...jobs].reverse().map((job) => (
           <div key={job.id} className="p-2 border-gray-400 border-b-1 rounded-lg shadow-sm">
             <h2 className="text-lg font-semibold">{job.title}</h2>
             <p className="text-black">{job.company}</p>
