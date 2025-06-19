@@ -4,15 +4,19 @@ import { projects } from "@/personalData.js";
 export default function Project() {
   return (
     <>
-      <div className="text-4xl font-semibold text-center mt-10 mb-5 ">Projects</div>
+      <div className="text-4xl font-semibold text-center mt-10 mb-5 ">
+        Projects
+      </div>
 
       <div className=" flex  flex-wrap gap-3 justify-center ">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="  min-w-50  text-center  py-2 px-1  border-gray-400 border-b-1  rounded-lg shadow-sm bg-[#d4d4ff]"
+            className="  min-w-50  text-center  py-2 px-1  border-gray-400 border-b-1  rounded-lg shadow-sm bg-[#363452] "
           >
-            <h3 className="text-lg lg:text-2xl font-semibold">{project.title}</h3>
+            <h3 className="text-lg lg:text-2xl font-semibold">
+              {project.title}
+            </h3>
 
             <h1 className="text-lg lg:text-xl mt-2">Key Features: </h1>
             <ul className="">

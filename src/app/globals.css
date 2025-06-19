@@ -13,9 +13,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: linear-gradient(to bottom, rgb(41, 17, 51) 60%, #4e3131 120%);
     --foreground: #ededed;
   }
 }
