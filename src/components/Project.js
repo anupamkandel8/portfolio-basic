@@ -21,7 +21,7 @@ export default function Project() {
             <h1 className="text-lg lg:text-xl mt-2">Key Features: </h1>
             <ul className="">
               {project.keyFetures.map((feature) => (
-                <li key={feature} className=" text-md  text-gray-600 ">
+                <li key={feature} className=" text-md  text-gray-200 ">
                   {feature}
                 </li>
               ))}
@@ -29,7 +29,7 @@ export default function Project() {
 
             <div>
               <h1 className="my-0">... </h1>
-              <p className="text-gray-500 text-sm ">Used technologies:</p>
+              <p className="text-gray-300 text-sm ">Used technologies:</p>
               {project.technologies.map((tech, index) => (
                 <img
                   key={index}

@@ -15,18 +15,18 @@ export default function Experience() {
             className=" bg-[#363452]  max-w-80 p-2 border-gray-500  border-b-1 rounded-lg shadow-sm hover:scale-108 hover:mx-1 transition-all duration-200"
           >
             <h2 className="text-2xl font-semibold">{job.title}</h2>
-            <p className="text-black text-lg">{job.company}</p>
-            <p className="text-gray-500 text-sm">{job.duration}</p>
+            <p className=" text-gray-50 text-lg">{job.company}</p>
+            <p className="text-gray-300 text-sm">{job.duration}</p>
             {Array.isArray(job.description) ? (
               <ul className="list-disc pl-5 mt-2">
                 {job.description.map((desc, index) => (
-                  <li key={index} className="text-gray-900 text-md">
+                  <li key={index} className="text-gray-200 text-md">
                     {desc}
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-900 text-md">{job.description}</p>
+              <p className="text-gray-200 text-md">{job.description}</p>
             )}
           </div>
         ))}

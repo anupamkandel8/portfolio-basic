@@ -86,7 +86,7 @@ export default function Contact({className}) {
         />
         <button
           onClick={sendEmail}
-          className="px-1 px-5 py-2 mx-auto bg-gray-100 text-black rounded hover:bg-gray-400 transition cursor-pointer hover:scale-110 "
+          className=" px-5 py-2 mx-auto bg-gray-100 text-black rounded hover:bg-gray-400 transition cursor-pointer hover:scale-110 "
         >
           Send Message
         </button>
