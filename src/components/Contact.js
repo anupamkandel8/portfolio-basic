@@ -3,7 +3,9 @@ import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export default function Contact({ className }) {
+export default function Contact({className}) {
+
+
   let loadingToastId;
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
@@ -48,47 +50,48 @@ export default function Contact({ className }) {
   };
 
   return (
-    <div
-      className={`  flex flex-col items-center lg:justify-center gap-1 ${className}`}
-    >
-      <h1 className="text-3xl font-bold">Contact Me</h1>
 
-      <div className="flex flex-col gap-3 w-full">
-        <input
-          onChange={(e) => setContact(e.target.value)}
-          type="text"
-          name="contact"
-          required
-          placeholder="Your contact information"
-          className=" border rounded px-3 py-2"
-          value={contact}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              sendEmail();
-            }
-          }}
-        />
-        <textarea
-          onChange={(e) => setMessage(e.target.value)}
-          name="message"
-          required
-          placeholder="Write message..."
-          className="border rounded px-3 py-2"
-          rows={3}
-          value={message}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              sendEmail();
-            }
-          }}
-        />
-        <button
-          onClick={sendEmail}
-          className="px-1 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-        >
-          Send Message
-        </button>
-      </div>
-    </div>
-  );
+      <div className={`  flex flex-col items-center md:justify-center gap-1 mt-5 ${className}`}>
+        <h1 className="text-3xl font-bold">Contact Me</h1>
+        
+
+          <div className="flex flex-col gap-3 w-full">
+            <input
+              onChange={(e) => setContact(e.target.value)}
+              type="text"
+              name="contact"
+              required
+              placeholder="Your contact information"
+              className=" border rounded px-3 py-2"
+              value={contact}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  sendEmail();
+                }
+              }}
+            />
+            <textarea
+              onChange={(e) => setMessage(e.target.value)}
+              name="message"
+              required
+              placeholder="Write message..."
+              className="border rounded px-3 py-2"
+              rows={3}
+              value={message}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  sendEmail();
+                }
+              }}
+            />
+            <button
+              onClick={sendEmail}
+              className="px-1 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+      
+    );
 }

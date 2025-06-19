@@ -8,7 +8,7 @@ export default function Skill({ className }) {
       <h1 className="text-center font-extrabold text-3xl mb-3 tracking-wide text-gray-800">
         Skills
       </h1>
-      <ul className="flex flex-wrap gap-4">
+      <ul className="flex flex-wrap gap-4 justify-center  mx-auto">
         {skills.map((category, idx) => (
           <li key={idx} className=" bg-[#ddf] p-1 rounded-md shadow-md hover:shadow-lg hover:scale-120 transition-all duration-200">
 
