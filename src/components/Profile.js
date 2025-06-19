@@ -19,17 +19,17 @@ export default function Profile({ className }) {
         alt="Profile"
         height={200}
         width={200}
-        className="rounded-[30%] md:hidden"
+        className="rounded-[30%] lg:hidden"
       />
       <Image
         src="/profile.jpg"
         alt="Profile"
         height={350}
         width={350}
-        className="rounded-[30%] hidden md:block"
+        className="rounded-[30%] hidden lg:block"
       />
-      <h1 className="text-3xl md:text-6xl font-bold mt-4">{`I'm  Anupam Kandel`}</h1>
-      <p className="text-lg md:text-3xl text-gray-600 mt-0 md:mt-5 font-semibold">
+      <h1 className="text-3xl lg:text-6xl font-bold mt-4">{`I'm  Anupam Kandel`}</h1>
+      <p className="text-lg lg:text-3xl text-gray-600 mt-0 md:mt-5 font-semibold">
         A passionate Full Stack Web Developer
       </p>
       <div className="flex gap-5 mt-10">
