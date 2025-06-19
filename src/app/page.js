@@ -13,31 +13,28 @@ export default function page() {
     <>
       <Toaster />
 
-      <div className=" m-5 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-10">
-        {/* Second box */}
-        <div className="col-span-1 lg:order-2   lg:col-span-3 ">
-          <Profile />
-          <Contact />
-        </div>
-        {/* Third box */}
-        <div className="col-span-1 lg:col-span-3 ">
-          <Experience />
-          <Skill className="max-w-fit sm:max-w-full mx-auto lg:hidden " />
-        </div>
-        {/* Third box */}
-        <div className="flex flex-col col-span-1 order-2 sm:order-3  sm:col-span-2 lg:col-span-4 ">
-          <Project />
-          <button
-            className=" max-w-fit mx-auto m-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg sm:hidden"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            Contact Me!
-          </button>
-          
-          <Skill className="max-w-fit  mx-auto hidden lg:block " />
+      <div className="grid  grid-cols-1 sm:grid-cols-2 gap-3 justify-center items-center">
+        <Profile className="sm:min-h-screen" />
+        <div>
+          <Contact className='max-w-100 mx-auto ' />
+          <Skill className="hidden sm:block " />
         </div>
       </div>
+
+      <Experience />
+
+      <Project />
+
+      <Skill className="sm:hidden" />
     </>
   );
 }
 
+{
+  /* <button
+  className=" max-w-fit mx-auto m-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg sm:hidden"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+>
+  Contact Me!
+</button>; */
+}

@@ -2,40 +2,40 @@ import React from "react";
 
 import { skills } from "@/personalData.js";
 
-export default function Skill({className}) {
+export default function Skill({ className }) {
   return (
-    <>
-      <div className={`mt-4 ${className} `} >
-        <h1 className="text-center font-bold text-2xl m-5 ">Skills</h1>
-        <ul>
-          {skills.map((category, idx) => (
-            <li key={idx} className="mb-4 flex items-center">
-              <span className="font-semibold mr-2">
-                {category.category + ":"}
-              </span>
-              <span className="flex flex-wrap gap-3 mt-0">
-                {category.items.map((skill, i) => (
-                  <span
-                    key={i}
-                    className="relative flex items-center gap-1 group "
-                    tabIndex={0}
-                  >
-                    <img
-                      src={skill.logo}
-                      alt={skill.name}
-                      className="w-6 h-6"
-                    />
-                    {/* Tooltip */}
-                    <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 rounded bg-gray-800 text-white text-xs opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity z-10 whitespace-nowrap">
-                      {skill.name}
-                    </span>
-                  </span>
-                ))}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <div className={`mt-8 ${className}`}>
+      <h1 className="text-center font-extrabold text-3xl mb-3 tracking-wide text-gray-800">
+        Skills
+      </h1>
+      <ul className="flex flex-wrap gap-4">
+        {skills.map((category, idx) => (
+          <li key={idx} className=" bg-[#ddf] p-1 rounded-md shadow-md hover:shadow-lg hover:scale-120 transition-all duration-200">
+
+              <div className="font-semibold mb-1 text-center text-sm text-black">
+                {category.category}
+              </div>
+            <div className="flex flex-wrap gap-1 ">
+              {category.items.map((skill, i) => (
+                <div
+                  key={i}
+                  className="w-13 h-fit flex flex-col items-center  transition-transform hover:scale-130  "
+                  tabIndex={0}
+                >
+                  <img
+                    src={skill.logo}
+                    alt={skill.name}
+                    className="w-7 h-7  "
+                  />
+                  <p className="text-[10px] font-medium text-gray-800">
+                    {skill.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
