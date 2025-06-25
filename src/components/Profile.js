@@ -1,15 +1,60 @@
 import React from "react";
 import Image from "next/image";
 
-const downloadPdf = () => {
-  const link = document.createElement("a"); // create <a> tag
-  link.href = "/anupam-resume.pdf"; // file location (inside public)
-  link.download = "anupam-resume.pdf"; // force download with filename
-  link.target = "_blank"; // open in new tab
-  link.click(); // trigger click
-};
-
 export default function Profile({ className }) {
+  const socials = [
+    {
+      iconLink:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg",
+      link: "https://www.linkedin.com/in/anupam-kandel-561b72243/",
+      title: "LinkedIn",
+    },
+    {
+      iconLink:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/X_icon.svg/512px-X_icon.svg.png?20250519203220",
+      link: "https://twitter.com/anupamkandel8",
+      title: "Twitter",
+    },
+    {
+      title: "Mail",
+      iconLink: "https://cdn-icons-png.flaticon.com/512/732/732200.png",
+      link: "mailto:anupamkandel8@gmail.com",
+    },
+
+    {
+      iconLink: "https://www.svgrepo.com/show/475654/github-color.svg",
+      link: "https://github.com/anupamkandel8",
+      title: "GitHub",
+    },
+    {
+      iconLink: "https://cdn-icons-png.flaticon.com/512/337/337946.png",
+      link: "/anupam-resume.pdf",
+      title: "Resume",
+    },
+  ];
+
+  const downloadPdf = () => {
+    const link = document.createElement("a"); // create <a> tag
+    link.href = "/anupam-resume.pdf"; // file location (inside public)
+    link.download = "anupam-resume.pdf"; // force download with filename
+    link.target = "_blank"; // open in new tab
+    link.click(); // trigger click
+  };
+
+  function SocialComponent({ iconLink, link, title, ...props }) {
+    return (
+      <div
+        {...props}
+        className="flex flex-col items-center hover:scale-120  transition-transform duration-200"
+      >
+        <a href={link} target="_blank" rel="noopener noreferrer" title={title}>
+          <img src={iconLink} alt={title} className="w-10 h-10" />
+          <span className="text-xs mt-1 text-gray-400">{title}</span>
+        </a>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`  flex flex-col items-center text-center  pt-6  ${className}`}
@@ -32,50 +77,17 @@ export default function Profile({ className }) {
       <p className="text-lg lg:text-3xl text-gray-400 mt-0 md:mt-5 font-semibold">
         A passionate Full Stack Web Developer
       </p>
-      <div className="flex gap-5 mt-10">
-        <div className="flex flex-col items-center hover:scale-120  transition-transform duration-200">
-          <a
-            href="https://www.linkedin.com/in/anupam-kandel-561b72243/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-              alt="LinkedIn"
-              className="w-10 h-10"
-            />
-            <span className="text-xs mt-1 text-gray-400">LinkedIn</span>
-          </a>
-        </div>
-        <div className="flex flex-col items-center hover:scale-120  transition-transform duration-200">
-          <a
-            href="https://github.com/anupamkandel8"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              alt="GitHub"
-              className="w-10 h-10 bg-white rounded-full"
-            />
-            <span className="text-xs mt-1 text-gray-400">GitHub</span>
-          </a>
-        </div>
-        <div
-          onClick={downloadPdf}
-          className="flex flex-col items-center cursor-pointer hover:scale-120  transition-transform duration-200"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
-            alt="Resume"
-            className="w-10 h-10"
+      <div className="flex flex-wrap justify-center items-center gap-5 mt-10">
+        {socials.map((social) => (
+          <SocialComponent
+            key={social.title}
+            iconLink={social.iconLink}
+            link={social.link}
+            title={social.title}
+            onClick={social.title === "Resume" ? downloadPdf : undefined}
           />
-          <span className="text-xs mt-1 text-gray-400">Resume</span>
-        </div>
+        ))}
       </div>
-      <div className="flex w-full max-w-90 gap-4"></div>
     </div>
   );
 }

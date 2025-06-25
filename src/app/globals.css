@@ -1,8 +1,7 @@
-/* @import "tailwindcss/typography"; */
 @import "tailwindcss";
 
 :root {
-  --background:#ddf;
+  --background:#000000;
   --foreground: #000000;
 }
 

@@ -12,7 +12,7 @@ export default function Project() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="  min-w-50  text-center  py-2 px-1  border-gray-400 border-b-1  rounded-lg shadow-sm bg-[#363452] "
+            className=" min-w-full   sm:min-w-60  text-center  py-2 px-1  border-gray-400 border-b-1  rounded-lg shadow-sm bg-[#363452] "
           >
             <h3 className="text-lg lg:text-2xl font-semibold">
               {project.title}
@@ -43,23 +43,25 @@ export default function Project() {
             <h1 className="">... </h1>
 
             <div className="  ">
-              <a href={project.githubLink}>
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                   alt="GitHub"
                   title="GitHub"
-                  className="inline-block w-5 h-5 align-text-bottom mr-1 mb-1"
+                  className="inline-block w-7 h-7 align-text-bottom mr-1 mb-1"
                 />
               </a>
               <span className="mx-2"></span>
-              <a href={project.liveLink}>
-                <img
-                  src="https://www.svgrepo.com/show/310964/live.svg"
-                  alt="Live Demo"
-                  title="Live Demo"
-                  className="inline-block w-7 h-7 align-text-bottom mr-1"
-                />
-              </a>
+              {project.liveLink && (
+                <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="https://www.svgrepo.com/show/310964/live.svg"
+                    alt="Live Demo"
+                    title="Live Demo"
+                    className="inline-block w-8 h-8 align-text-bottom mr-1"
+                  />
+                </a>
+              )}
             </div>
           </div>
         ))}
