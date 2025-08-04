@@ -118,6 +118,7 @@ export const skills = [
       { name: "React", logo: techLogos["React"] },
       { name: "HTML", logo: techLogos["HTML"] },
       { name: "CSS", logo: techLogos["CSS"] },
+      { name: "Next.js", logo: techLogos["Next.js"] },
     ],
   },
   {
