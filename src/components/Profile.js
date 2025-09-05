@@ -18,12 +18,12 @@ export default function Profile({ className }) {
     {
       title: "Mail",
       iconLink: "https://cdn-icons-png.flaticon.com/512/732/732200.png",
-      link: "mailto:anupamkandel8@gmail.com",
+      link: "mailto:anupamkandel5@gmail.com",
     },
 
     {
       iconLink: "https://www.svgrepo.com/show/475654/github-color.svg",
-      link: "https://github.com/anupamkandel8",
+      link: "https://github.com/anupamkandel",
       title: "GitHub",
     },
     {
